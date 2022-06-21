@@ -12,8 +12,11 @@ function getTotal() {
   }
   const tax = total * 0.08;
   taxProcess(tax);
-  return () => {
+  const printTotal = () => {
     return "$" + total + "tax is" + tax;
+  };
+  return {
+    print: printTotal,
   };
 }
 
@@ -28,7 +31,7 @@ addItems("cap", 50);
 let i = 8;
 
 console.log(items);
-console.log(getTotal()());
+console.log(getTotal().print());
 
 const matrix = [
   [1, 2, 3],
